@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>City</title>
+
+</head>
+<body>
+<h2>
+    <p> <output th:value="${city}" th:text="${city.getCity()}"/></p>
+</h2>
+<table>
+    <thead>
+    <tr>
+        <th>Date</th>
+        <th>Weather state</th>
+        <th>Min temp</th>
+        <th>Max temp</th>
+        <th>Air pressure</th>
+        <th>Humidity</th>
+
+    </tr>
+    </thead>
+    <tbody>
+
+<tr th:each="weather:${weatherList}">
+    <td th:text="${weather.getApplicableDate()}"/><br>
+    <td th:text="${weather.getWeatherStateName()}"/><br>
+    <td th:text="${weather.getMinTemp()}"/><br>
+    <td th:text="${weather.getMaxTemp()}"/><br>
+    <td th:text="${weather.getAirPressure()}"/><br>
+    <td th:text="${weather.getHumidity()}"/><br>
+
+</tr>
+    </tbody>
+</table>
+
+<tr th:each="icon:${iconList}">
+    <img th:width="500px" th:src="${icon.getIcon()}" />
+
+</tr>
+
+<p>======================================================</p>
+<strong><a href="/weather">Click here to go back</a></strong>
+
+</body>
+</html>
